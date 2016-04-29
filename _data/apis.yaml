@@ -26,7 +26,9 @@ apis:
   baseURL: ""
   tags:
   - Verizon ThingSpace Develop Stack
-  properties: []
+  properties:
+  - type: x-openapi-spec
+    url: api-commons/device-messaging-api-openapi-spec.json
 - name: Personal Cloud Storage API
   description: ""
   image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/vzlogo_lg.png
