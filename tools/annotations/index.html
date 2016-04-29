@@ -298,15 +298,9 @@ function processAPIsJSON($apisjsonURL)
 
           $fullcount = $fullcount + 1;
 
-          if(!$url.indexOf('http') > -1)
-            {
-            $baseSite = $apisJSON['url'].replace('apis.json','');
-            $pull_url = $baseSite + $url;
-            }
-          else
-            {
-            $pull_url = $url;
-            }
+          if (!/^(f|ht)tps?:\/\//i.test($url)) {
+                $url = "{{ site.url }}" + $url;
+             }
 
           var loadIt3 = $.getJSON($pull_url, function($openapispec) {
 
