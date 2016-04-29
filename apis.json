@@ -27,7 +27,10 @@
 		"humanURL": "",
 		"baseURL": "",
 		"tags": ["Verizon ThingSpace Develop Stack"],
-		"properties": []
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/device-messaging-api-openapi-spec.json"
+		}]
 	},
 	{
 		"name": "Personal Cloud Storage API",
