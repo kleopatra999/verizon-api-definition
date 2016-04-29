@@ -1,7 +1,10 @@
 - swagger: "2.0"
   info:
     title: ThingSpace Connectivity Management API
-    version: ~
+    description: ~
+    termsOfService: https://thingspace.verizon.com/developer/terms
+    version: v1
+  host: http://thingspace.io
   basePath: /api/m2m/v1
   schemes:
   - http
