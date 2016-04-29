@@ -116,7 +116,7 @@ navigation:
     padding: 0
     decorate: 0
   - label1: Comment / Issues
-    link1: https://github.com/api-evangelist-tools/apis-json-annotation/issues
+    link1: https://github.com/api-stack/verizon-api-definition/issues
     size1: 70
     extend: 0
     label2:
