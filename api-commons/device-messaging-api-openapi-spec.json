@@ -1,0 +1,159 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Verizon Thingspace Device Messaging API",
+		"description": "If your product, device, machine, gadget or thing can connect to the Internet, it can use the Device Messaging API to easily publish and subscribe to data. Its machine-to-machine (M2M) messaging for the Internet Of Things (IOT) the way it was meant to be.",
+		"termsOfService": "https://thingspace.verizon.com/developer/terms",
+		"version": "v1"
+	},
+	"host": "http://thingspace.io",
+	"basePath": "/",
+	"schemes": ["http"],
+	"produces": ["application/json"],
+	"consumes": ["application/json"],
+	"paths": {
+		"/dweet/for/{thing}": {
+			"get": {
+				"summary": "Create a dweet for a thing.",
+				"description": "To dweet from your thing, simply call a URL like: <b>https://thingspace.io/dweet/for/my-thing-name?key={account}&hello=world</b><p>Just replace my-thing-name with a unique name. Thats it!<p>Any query parameters you add to the request will be added as key-value pairs to the content of the dweet. For example:<p><b>https://thingspace.io/dweet/for/my-thing-name?key={account}&hello=world&foo=bar</b><p>You can also send any valid JSON data in the body of the request with a POST.<p>thingspace.io will also respond to JSONP requests with a <i>?callback=</i> query parameter.<p>While we recommend using a secure <b>https://</b> connection, thingspace.io also supports un-secure <b>http://</b> connections for devices that dont support SSL.<p>",
+				"operationId": "postDweetWithAGet",
+				"parameters": [{
+					"in": "query",
+					"name": "<any>",
+					"description": "You can add any combination of name/value pairs in the URL here.",
+					"type": "string"
+				},
+				{
+					"in": "query",
+					"name": "key",
+					"description": "A valid master key for a locked thing.",
+					"type": "string"
+				},
+				{
+					"in": "path",
+					"name": "thing",
+					"description": "A unique name of a thing.  This can be something like a GUID, MAC address, IMEI, ESN, etc., but should be unique within the context of your account.",
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"post": {
+				"summary": "Create a dweet for a thing.",
+				"description": "To dweet from your thing, simply call a URL like: <b>https://thingspace.io/dweet/for/my-thing-name?key={account}&hello=world</b><p>Just replace my-thing-name with a unique name. Thats it!<p>Any query parameters you add to the request will be added as key-value pairs to the content of the dweet. For example:<p><b>https://thingspace.io/dweet/for/my-thing-name?key={account}&hello=world&foo=bar</b><p>You can also send any valid JSON data in the body of the request with a POST.<p>thingspace.io will also respond to JSONP requests with a <i>?callback=</i> query parameter.<p>While we recommend using a secure <b>https://</b> connection, thingspace.io also supports un-secure <b>http://</b> connections for devices that dont support SSL.<p>",
+				"operationId": "postDweet",
+				"parameters": [{
+					"in": "body",
+					"name": "content",
+					"description": "The actual content of the payload. Can be any valid JSON string.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				},
+				{
+					"in": "query",
+					"name": "key",
+					"description": "A valid master key for a locked thing.",
+					"type": "string"
+				},
+				{
+					"in": "path",
+					"name": "thing",
+					"description": "A unique name of a thing.  This can be something like a GUID, MAC address, IMEI, ESN, etc., but should be unique within the context of your account.",
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/get/dweets/for/{thing}": {
+			"get": {
+				"summary": "Read all of the saved dweets (up to last 500) for a thing.",
+				"description": "To read all the dweets for a thing, you can call:<p><b>https://thingspace.io/get/dweets/for/my-thing-name?key={account}</b>",
+				"operationId": "getAllDweets",
+				"parameters": [{
+					"in": "query",
+					"name": "key",
+					"description": "A valid master or read-only key for a locked thing.",
+					"type": "string"
+				},
+				{
+					"in": "path",
+					"name": "thing",
+					"description": "A unique name of a thing.  This can be something like a GUID, MAC address, IMEI, ESN, etc., but should be unique within the context of your account.",
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/get/latest/dweet/for/{thing}": {
+			"get": {
+				"summary": "Read the latest dweet for a thing.",
+				"description": "To read the latest dweet for a thing, you can call:<p><b>https://thingspace.io/get/latest/dweet/for/my-thing-name?key={account}</b><p>Note that thingspace.io only holds on to the last 500 dweets over a 24 hour period. If the thing hasnt dweeted in the last 24 hours, its history will be removed.<p></b>",
+				"operationId": "getLatestDweet",
+				"parameters": [{
+					"in": "query",
+					"name": "key",
+					"description": "A valid master or read-only key for a locked thing.",
+					"type": "string"
+				},
+				{
+					"in": "path",
+					"name": "thing",
+					"description": "A unique name of a thing.  This can be something like a GUID, MAC address, IMEI, ESN, etc., but should be unique within the context of your account.",
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/listen/for/dweets/from/{thing}": {
+			"get": {
+				"summary": "Listen for dweets from a thing.",
+				"description": "Sorry, this function uses HTTP chunked responses and cannot be tested here. Try something like: <pre>curl --raw https://thingspace.io/listen/for/dweets/from/{thing}</pre><p>The server will keep the connection alive and send you dweets as they arrive, like:<pre>{thing:my-thing-name,created:2014-02-17T01:10:21.901Z,content:{foo:bar}}</pre>",
+				"operationId": "listenForDweets",
+				"parameters": [{
+					"in": "query",
+					"name": "key",
+					"description": "A valid master or read-only key for a locked thing.",
+					"type": "string"
+				},
+				{
+					"in": "path",
+					"name": "thing",
+					"description": "A unique name of a thing.  This can be something like a GUID, MAC address, IMEI, ESN, etc., but should be unique within the context of your account.",
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		}
+	},
+	"definitions": []
+}
