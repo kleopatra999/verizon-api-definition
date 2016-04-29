@@ -1,21 +1,23 @@
-- swagger: "2.0"
+- swagger: '2.0'
   info:
     title: ThingSpace Connectivity Management API
     description:
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: http://thingspace.io
-  basePath: /api/m2m/v1
+  basePath: "/api/m2m/v1"
   schemes:
   - http
   produces:
   - application/json
+  consumes:
+  - application/json
   paths:
-    /callbacks/{aname}:
+    "/callbacks/{aname}":
       get:
         summary: Returns the name and endpoint URL of all callback listening services
           registered for a given account.
-        description: ""
+        description: ''
         operationId: listCallbacksUsingGET
         parameters:
         - in: path
@@ -25,10 +27,10 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Callbacks
         security: []
       post:
         summary: Registers a URL where an account will receive RESTFul messages from
@@ -44,21 +46,21 @@
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Callbacks
         security: []
-    /callbacks/{aname}/name/{sname}:
+    "/callbacks/{aname}/name/{sname}":
       delete:
         summary: Stops the platform from sending callback messages for the specified
           account and service.
-        description: ""
+        description: ''
         operationId: unregisterCallbackUsingDELETE
         parameters:
         - in: path
@@ -71,12 +73,12 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Callbacks
         security: []
-    /devices/actions/activate:
+    "/devices/actions/activate":
       post:
         summary: Activates service for one or more devices.
         description: If the devices do not already exist in the account, this API method
@@ -87,17 +89,17 @@
           name: request
           description: Activate state
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/add:
+    "/devices/actions/add":
       post:
         summary: Adds up to 200 new devices, without provisioning lines of service for
           them.
@@ -109,17 +111,17 @@
           name: request
           description: Devices to Add
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/customFields:
+    "/devices/actions/customFields":
       put:
         summary: Updates one or more custom field values for devices.
         description: Sends a CarrierService callback message for each device in the
@@ -131,17 +133,17 @@
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/deactivate:
+    "/devices/actions/deactivate":
       post:
         summary: Deactivates service for one or more devices.
         description: Deactivating service for a device may result in an early termination
@@ -154,98 +156,98 @@
           name: request
           description: Deactivate state
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/list:
+    "/devices/actions/list":
       post:
         summary: Returns information about a specified device or a list of devices in
           an account.
-        description: ""
+        description: ''
         operationId: listUsingPOST
         parameters:
         - in: body
           name: request
           description: Device Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/plan:
+    "/devices/actions/plan":
       put:
         summary: Sets a new service plan for one or more devices.
-        description: ""
+        description: ''
         operationId: updateServicePlanUsingPUT
         parameters:
         - in: body
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/restore:
+    "/devices/actions/restore":
       post:
         summary: 'Restore service to one or more suspended devices. '
-        description: ""
+        description: ''
         operationId: restoreUsingPOST
         parameters:
         - in: body
           name: request
           description: Update state
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/actions/suspend:
+    "/devices/actions/suspend":
       post:
         summary: 'Suspends service for one or more devices. '
-        description: ""
+        description: ''
         operationId: suspendUsingPOST
         parameters:
         - in: body
           name: request
           description: Update state
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/connections/actions/list:
+    "/devices/connections/actions/list":
       post:
         summary: Returns a list of network connection events for a device during a specified
           time period.
@@ -259,17 +261,17 @@
           name: request
           description: Device Connection Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/connections/actions/listHistory:
+    "/devices/connections/actions/listHistory":
       post:
         summary: Returns a list of network connection events for a device during a specified
           time period.
@@ -282,58 +284,58 @@
           name: request
           description: Device Connection Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/costCenter:
+    "/devices/costCenter":
       put:
         summary: Changes or removes the costCenterCode value for one or more devices.
-        description: ""
+        description: ''
         operationId: changeCostCenterUsingPUT
         parameters:
         - in: body
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/history/actions/list:
+    "/devices/history/actions/list":
       post:
         summary: Returns the provisioning history of a device during a specified time
           period.
-        description: ""
+        description: ''
         operationId: provisioningHistoryListUsingPOST
         parameters:
         - in: body
           name: request
           description: Device ProHistory Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/prl/actions/list:
+    "/devices/prl/actions/list":
       post:
         summary: Requests the current PRL version for devices, which can help determine
           which devices need a PRL update.
@@ -344,38 +346,38 @@
           name: request
           description: Device PRL Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/usage/actions/list:
+    "/devices/usage/actions/list":
       post:
         summary: Returns the network data usage history of a device during a specified
           time period.
-        description: ""
+        description: ''
         operationId: usageListUsingPOST
         parameters:
         - in: body
           name: request
           description: Device Usage Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/usage/actions/list/aggregate:
+    "/devices/usage/actions/list/aggregate":
       post:
         summary: Returns the total amount of data sent and the total number of SMS messages
           sent or received by a set of devices in a specified timeframe.
@@ -388,28 +390,28 @@
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /devices/{serviceType}/actions/deviceId:
+    "/devices/{serviceType}/actions/deviceId":
       put:
         summary: Changes the identifier of a 3G or 4G device to match hardware changes
           made for a line of service.
-        description: ""
+        description: ''
         operationId: changeDeviceIdUsingPUT
         parameters:
         - in: body
           name: request
           description: Device Usage Query
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: path
           name: serviceType
           description: Identifier type
@@ -417,36 +419,36 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Devices
         security: []
-    /groups:
+    "/groups":
       post:
         summary: Creates a new device group and optionally adds a set of devices to
           that group.
-        description: ""
+        description: ''
         operationId: createDeviceGroupUsingPOST
         parameters:
         - in: body
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
-    /groups/{aname}:
+    "/groups/{aname}":
       get:
         summary: Returns a list of device groups in an account
-        description: ""
+        description: ''
         operationId: getListUsingGET
         parameters:
         - in: path
@@ -456,16 +458,16 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
-    /groups/{aname}/name/{gname}:
+    "/groups/{aname}/name/{gname}":
       delete:
         summary: Deletes a device group. Devices in the group are moved to the default
           device group and are not deleted from the account.
-        description: ""
+        description: ''
         operationId: deleteDeviceGroupUsingDELETE
         parameters:
         - in: path
@@ -478,10 +480,10 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
       get:
         summary: Returns the name, description, and list of devices in a device group.
@@ -503,15 +505,15 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
       put:
         summary: Make changes to a device group, including changing the name and description,
           and adding or removing devices.
-        description: ""
+        description: ''
         operationId: updateDeviceGroupUsingPUT
         parameters:
         - in: path
@@ -524,17 +526,17 @@
           name: request
           description: Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
-    /leads/{aname}:
+    "/leads/{aname}":
       get:
         summary: Returns information for all leads associated with the account
         description: When HTTP status is 202, a URL will be returned in the Location
@@ -552,16 +554,16 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Groups
         security: []
-    /plans/{aname}:
+    "/plans/{aname}":
       get:
         summary: Returns a list of all data service plans that are associated with a
           specified account.
-        description: ""
+        description: ''
         operationId: getServicePlanListUsingGET
         parameters:
         - in: path
@@ -571,45 +573,45 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Plans
         security: []
-    /session/login:
+    "/session/login":
       post:
         summary: Initiates a Connectivity Management session and returns a session token
           required in subsequent API requests.
-        description: ""
+        description: ''
         operationId: loginUsingPOST
         parameters:
         - in: body
           name: request
           description: request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Session
         security: []
-    /session/logout:
+    "/session/logout":
       post:
         summary: Ends a Connectivity Management session.
-        description: ""
+        description: ''
         operationId: logoutUsingPOST
         parameters:
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Session
         security: []
-    /session/password/actions/reset:
+    "/session/password/actions/reset":
       put:
         summary: Returns a new, randomly generated password for the current username
         description: The new password is effective immediately. Passwords do not expire,
@@ -620,17 +622,17 @@
           name: request
           description: Current Password
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Session
         security: []
-    /sms:
+    "/sms":
       post:
         summary: Sends an SMS message to one or more devices.
         description: The messages are queued on the ThingSpace Platform and sent as
@@ -641,17 +643,17 @@
           name: request
           description: SMS Request
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: header
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - SMS
         security: []
-    /sms/{aname}/history:
+    "/sms/{aname}/history":
       get:
         summary: Retrieves queued SMS messages sent by all M2M MC devices associated
           with an account.
@@ -670,15 +672,15 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - SMS
         security: []
-    /sms/{aname}/startCallbacks:
+    "/sms/{aname}/startCallbacks":
       put:
         summary: Starts delivery of queued SMS messages for the specific account.
-        description: ""
+        description: ''
         operationId: startSmsCallbackUsingPUT
         parameters:
         - in: path
@@ -688,10 +690,10 @@
           name: VZ-M2M-Token
           description: M2M-MC Session Token
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - SMS
         security: []
   definitions:
     AddDevicesRequest:

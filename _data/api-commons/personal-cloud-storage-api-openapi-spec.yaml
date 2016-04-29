@@ -1,28 +1,33 @@
-- swagger: "2.0"
+- swagger: '2.0'
   info:
     title: Verizon Cloud APIs
-    description:
+    description: 'The Verizon Cloud APIs enable you to access the personal storage of
+      millions of Verizon Cloud users who trust Verizon to automatically back up their
+      important content including photos, videos, documents, and music. Personal content
+      on any device, even on-the-go.  Documentation '
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: api.cloudapi.verizon.com
-  basePath: /cloud/1
+  basePath: "/cloud/1"
   schemes:
   - http
   produces:
   - application/json
+  consumes:
+  - application/json
   paths:
-    /account:
+    "/account":
       get:
         summary: Retrieve quota usage details.
-        description: ""
+        description: ''
         operationId: get_account
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Account
         security: []
-    /authorize:
+    "/authorize":
       get:
         summary: Obtain an OAuth2 authorization code.
         description: Redirects to a Verizon login page, where an end-user can sign in
@@ -37,23 +42,23 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Authorize
         security: []
-    /contacts:
+    "/contacts":
       get:
         summary: Retrieves all contacts.
         description: Retrieves all contacts.
         operationId: get_contacts
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Contacts
         security: []
-    /files{path}:
+    "/files{path}":
       get:
         summary: Retrieves file content.
         description: Returns the content of a file at the specified path.
@@ -62,12 +67,12 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fileupload/intent:
+    "/fileupload/intent":
       get:
         summary: Initiates a file upload intent request.
         description: Initiates a file upload intent request. Returns file upload URL
@@ -85,12 +90,12 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fops/copy:
+    "/fops/copy":
       post:
         summary: Create a copy of a file/folder.
         description: Create a copy of a file or folder. Any missing folder in the target
@@ -101,14 +106,14 @@
           name: fileCopyRequest
           description: Request object to copy file/folder.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fops/createfolder:
+    "/fops/createfolder":
       post:
         summary: Create a folder.
         description: Create a folder at the specified path.
@@ -118,14 +123,14 @@
           name: folder
           description: folder request object
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fops/delete:
+    "/fops/delete":
       delete:
         summary: Delete a file/folder.
         description: Delete a file/folder at the specified path.
@@ -137,12 +142,12 @@
           name: path
           description: Full path of the file/folder to be deleted.
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fops/move:
+    "/fops/move":
       post:
         summary: Move a file or folder.
         description: Moves a file or folder. Any missing folder in the target path will
@@ -153,14 +158,14 @@
           name: fileMoveRequest
           description: Request object to move file/folder.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fops/rename:
+    "/fops/rename":
       post:
         summary: Rename a file/folder.
         description: Rename a file or folder.
@@ -170,28 +175,28 @@
           name: fileRenameRequest
           description: Request object to rename file/folder.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /fullview:
+    "/fullview":
       get:
         summary: Retrieve information on all file and folder content.
-        description: ""
+        description: ''
         operationId: get_fullview
         parameters:
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Files
         security: []
-    /metadata{path}:
+    "/metadata{path}":
       get:
         summary: Get metadata for a file or folder in a user's repository.
         description: Fetch metadata for the file or folder under the specified path.
@@ -200,12 +205,12 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Metadata
         security: []
-    /playlists:
+    "/playlists":
       get:
         summary: Get a list of the user's playlists.
         description: Get a user specific list of playlists.
@@ -218,10 +223,10 @@
           description: Specify sort order for response. Syntax is {field}+{asc|desc}.
             Valid values for field are name and creationDate.
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       post:
         summary: Create a playlist.
@@ -232,14 +237,14 @@
           name: playlist
           description: playlist request object
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
-    /playlists/{playlistUid}:
+    "/playlists/{playlistUid}":
       delete:
         summary: Delete a playlist.
         description: Delete a specific playlist.
@@ -248,10 +253,10 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       get:
         summary: Get a playlist definition.
@@ -261,10 +266,10 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       put:
         summary: Update a playlist.
@@ -277,14 +282,14 @@
           name: playlistBase
           description: Request object to update basic playlist details.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
-    /playlists/{playlistUid}/items:
+    "/playlists/{playlistUid}/items":
       get:
         summary: Get a list of a playlists's items.
         description: Get details of all the playlists items for a given playlist.
@@ -293,10 +298,10 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       post:
         summary: Add item(s) to a playlist.
@@ -309,12 +314,12 @@
           name: playlistItems
           description: Request object to add items in playlist.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       put:
         summary: Update a playlist by sending a new 'playlistDefinition' model.
@@ -328,14 +333,14 @@
           name: playlist
           description: playlist request object
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
-    /playlists/{playlistUid}/items/{itemUid}:
+    "/playlists/{playlistUid}/items/{itemUid}":
       delete:
         summary: Remove an item from a playlist.
         description: Allow a client to remove a single item from a playlist.
@@ -344,10 +349,10 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
       get:
         summary: Retrieves playlist content.
@@ -357,12 +362,12 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Playlists
         security: []
-    /search:
+    "/search":
       get:
         summary: Search for files and folders.
         description: Search for files and folders. Search queries can return objects
@@ -375,26 +380,26 @@
           name: start
           description: Page number to return, for paginated responses. Default is 1.
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Search
         security: []
-    /thumbnails/{content-token}:
+    "/thumbnails/{content-token}":
       get:
         summary: Retrieve thumbnails for a file.
-        description: ""
+        description: ''
         operationId: get_thumbnails2
         parameters:
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Thumbnails
         security: []
-    /token:
+    "/token":
       post:
         summary: Obtain an OAuth2 access token.
         description: Obtain OAuth 2 access and refresh tokens, using an authorization
@@ -404,10 +409,10 @@
         - in: query
           name: No Name
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Tokens
         security: []
   definitions:
     file_metadata:

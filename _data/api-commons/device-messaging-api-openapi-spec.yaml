@@ -1,17 +1,22 @@
-- swagger: "2.0"
+- swagger: '2.0'
   info:
     title: Verizon Thingspace Device Messaging API
-    description:
+    description: If your product, device, machine, gadget or thing can connect to the
+      Internet, it can use the Device Messaging API to easily publish and subscribe
+      to data. Its machine-to-machine (M2M) messaging for the Internet Of Things (IOT)
+      the way it was meant to be.
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: http://thingspace.io
-  basePath: /
+  basePath: "/"
   schemes:
   - http
   produces:
   - application/json
+  consumes:
+  - application/json
   paths:
-    /dweet/for/{thing}:
+    "/dweet/for/{thing}":
       get:
         summary: Create a dweet for a thing.
         description: 'To dweet from your thing, simply call a URL like: <b>https://thingspace.io/dweet/for/my-thing-name?key={account}&hello=world</b><p>Just
@@ -26,7 +31,7 @@
         operationId: postDweetWithAGet
         parameters:
         - in: query
-          name: <any>
+          name: "<any>"
           description: You can add any combination of name/value pairs in the URL here.
           type: string
         - in: query
@@ -40,10 +45,10 @@
             your account.
           type: string
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Messaging
         security: []
       post:
         summary: Create a dweet for a thing.
@@ -62,7 +67,7 @@
           name: content
           description: The actual content of the payload. Can be any valid JSON string.
           schema:
-            $ref: '#/definitions/holder'
+            "$ref": "#/definitions/holder"
         - in: query
           name: key
           description: A valid master key for a locked thing.
@@ -74,12 +79,12 @@
             your account.
           type: string
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Messaging
         security: []
-    /get/dweets/for/{thing}:
+    "/get/dweets/for/{thing}":
       get:
         summary: Read all of the saved dweets (up to last 500) for a thing.
         description: To read all the dweets for a thing, you can call:<p><b>https://thingspace.io/get/dweets/for/my-thing-name?key={account}</b>
@@ -96,12 +101,12 @@
             your account.
           type: string
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Messaging
         security: []
-    /get/latest/dweet/for/{thing}:
+    "/get/latest/dweet/for/{thing}":
       get:
         summary: Read the latest dweet for a thing.
         description: To read the latest dweet for a thing, you can call:<p><b>https://thingspace.io/get/latest/dweet/for/my-thing-name?key={account}</b><p>Note
@@ -120,12 +125,12 @@
             your account.
           type: string
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Messaging
         security: []
-    /listen/for/dweets/from/{thing}:
+    "/listen/for/dweets/from/{thing}":
       get:
         summary: Listen for dweets from a thing.
         description: 'Sorry, this function uses HTTP chunked responses and cannot be
@@ -145,9 +150,9 @@
             your account.
           type: string
         responses:
-          200:
+          '200':
             description: OK
         tags:
-        - ""
+        - Messaging
         security: []
   definitions: []
