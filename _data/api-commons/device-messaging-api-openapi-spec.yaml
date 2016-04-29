@@ -1,10 +1,7 @@
 - swagger: "2.0"
   info:
     title: Verizon Thingspace Device Messaging API
-    description: If your product, device, machine, gadget or thing can connect to the
-      Internet, it can use the Device Messaging API to easily publish and subscribe
-      to data. Its machine-to-machine (M2M) messaging for the Internet Of Things (IOT)
-      the way it was meant to be.
+    description:
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: http://thingspace.io
@@ -12,8 +9,6 @@
   schemes:
   - http
   produces:
-  - application/json
-  consumes:
   - application/json
   paths:
     /dweet/for/{thing}:

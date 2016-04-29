@@ -1,10 +1,7 @@
 - swagger: "2.0"
   info:
     title: Verizon Cloud APIs
-    description: 'The Verizon Cloud APIs enable you to access the personal storage of
-      millions of Verizon Cloud users who trust Verizon to automatically back up their
-      important content including photos, videos, documents, and music. Personal content
-      on any device, even on-the-go.  Documentation '
+    description:
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: api.cloudapi.verizon.com
@@ -12,8 +9,6 @@
   schemes:
   - http
   produces:
-  - application/json
-  consumes:
   - application/json
   paths:
     /account:

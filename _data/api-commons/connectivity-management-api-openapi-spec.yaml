@@ -1,7 +1,7 @@
 - swagger: "2.0"
   info:
     title: ThingSpace Connectivity Management API
-    description: ~
+    description:
     termsOfService: https://thingspace.verizon.com/developer/terms
     version: v1
   host: http://thingspace.io
@@ -9,8 +9,6 @@
   schemes:
   - http
   produces:
-  - application/json
-  consumes:
   - application/json
   paths:
     /callbacks/{aname}:
