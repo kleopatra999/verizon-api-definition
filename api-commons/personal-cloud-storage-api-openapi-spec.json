@@ -1,0 +1,947 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Verizon Cloud APIs",
+		"version": null
+	},
+	"host": "api.cloudapi.verizon.com",
+	"basePath": "/cloud/1",
+	"schemes": ["http"],
+	"produces": ["application/json"],
+	"consumes": ["application/json"],
+	"paths": {
+		"/account": {
+			"get": {
+				"summary": "Retrieve quota usage details.",
+				"description": "",
+				"operationId": "get_account",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/authorize": {
+			"get": {
+				"summary": "Obtain an OAuth2 authorization code.",
+				"description": "Redirects to a Verizon login page, where an end-user can sign in and grant a third-party application access to their cloud account. If access is granted, a response containing an authorization code is sent to the HTTP callback address redirect_uri.  If not, redirect_uri will receive an HTTP request containing a query parameter error. After successfully retrieving an authorization code, the client should call POST on the /token resource in order to exchange an authorization code for an access token.",
+				"operationId": "get_authorize",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/contacts": {
+			"get": {
+				"summary": "Retrieves all contacts.",
+				"description": "Retrieves all contacts.",
+				"operationId": "get_contacts",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/files{path}": {
+			"get": {
+				"summary": "Retrieves file content.",
+				"description": "Returns the content of a file at the specified path.",
+				"operationId": "get_files",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fileupload/intent": {
+			"get": {
+				"summary": "Initiates a file upload intent request.",
+				"description": "Initiates a file upload intent request. Returns file upload URL and file commit URL in case of file is uploaded in chunk",
+				"operationId": "upload_file_intent",
+				"parameters": [{
+					"in": "query",
+					"name": "checksum",
+					"description": "Checksum of the file/chunk."
+				},
+				{
+					"in": "query",
+					"name": "chunk",
+					"description": "Should be set to false, in case the file binary has to be uploaded with single request. Otherwise should be set to true when file binary has to be uploaded in multiple request."
+				},
+				{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fops/copy": {
+			"post": {
+				"summary": "Create a copy of a file/folder.",
+				"description": "Create a copy of a file or folder. Any missing folder in the target path will be created.",
+				"operationId": "post_copy",
+				"parameters": [{
+					"in": "body",
+					"name": "fileCopyRequest",
+					"description": "Request object to copy file/folder.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fops/createfolder": {
+			"post": {
+				"summary": "Create a folder.",
+				"description": "Create a folder at the specified path.",
+				"operationId": "post_createfolder",
+				"parameters": [{
+					"in": "body",
+					"name": "folder",
+					"description": "folder request object",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fops/delete": {
+			"delete": {
+				"summary": "Delete a file/folder.",
+				"description": "Delete a file/folder at the specified path.",
+				"operationId": "delete_delete",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "query",
+					"name": "path",
+					"description": "Full path of the file/folder to be deleted."
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fops/move": {
+			"post": {
+				"summary": "Move a file or folder.",
+				"description": "Moves a file or folder. Any missing folder in the target path will be created.",
+				"operationId": "post_move",
+				"parameters": [{
+					"in": "body",
+					"name": "fileMoveRequest",
+					"description": "Request object to move file/folder.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fops/rename": {
+			"post": {
+				"summary": "Rename a file/folder.",
+				"description": "Rename a file or folder.",
+				"operationId": "post_rename",
+				"parameters": [{
+					"in": "body",
+					"name": "fileRenameRequest",
+					"description": "Request object to rename file/folder.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/fullview": {
+			"get": {
+				"summary": "Retrieve information on all file and folder content.",
+				"description": "",
+				"operationId": "get_fullview",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/metadata{path}": {
+			"get": {
+				"summary": "Get metadata for a file or folder in a user's repository.",
+				"description": "Fetch metadata for the file or folder under the specified path.",
+				"operationId": "get_metadata_path",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/playlists": {
+			"get": {
+				"summary": "Get a list of the user's playlists.",
+				"description": "Get a user specific list of playlists.",
+				"operationId": "get_playlists",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "query",
+					"name": "sort",
+					"description": "Specify sort order for response. Syntax is {field}+{asc|desc}. Valid values for field are name and creationDate."
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"post": {
+				"summary": "Create a playlist.",
+				"description": "Create a playlist, with or without items.",
+				"operationId": "post_playlist",
+				"parameters": [{
+					"in": "body",
+					"name": "playlist",
+					"description": "playlist request object",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/playlists/{playlistUid}": {
+			"delete": {
+				"summary": "Delete a playlist.",
+				"description": "Delete a specific playlist.",
+				"operationId": "delete_playlist",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"get": {
+				"summary": "Get a playlist definition.",
+				"description": "Get a specific playlist definition.",
+				"operationId": "get_playlist",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"put": {
+				"summary": "Update a playlist.",
+				"description": "Allows a client to update a playlists name.",
+				"operationId": "put_playlists",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "body",
+					"name": "playlistBase",
+					"description": "Request object to update basic playlist details.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/playlists/{playlistUid}/items": {
+			"get": {
+				"summary": "Get a list of a playlists's items.",
+				"description": "Get details of all the playlists items for a given playlist.",
+				"operationId": "get_playlist_items2",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"post": {
+				"summary": "Add item(s) to a playlist.",
+				"description": "Allow a client to add single or multiple items in a playlist.",
+				"operationId": "post_playlist_item",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "body",
+					"name": "playlistItems",
+					"description": "Request object to add items in playlist.",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"put": {
+				"summary": "Update a playlist by sending a new 'playlistDefinition' model.",
+				"description": "Allows a client to update a playlist by sending a new playlistDefinition model.",
+				"operationId": "update_playlist",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "body",
+					"name": "playlist",
+					"description": "playlist request object",
+					"schema": {
+						"$ref": "#/definitions/holder"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/playlists/{playlistUid}/items/{itemUid}": {
+			"delete": {
+				"summary": "Remove an item from a playlist.",
+				"description": "Allow a client to remove a single item from a playlist.",
+				"operationId": "delete_playlist_item",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			},
+			"get": {
+				"summary": "Retrieves playlist content.",
+				"description": "Returns the content of a playlist at the specified path.",
+				"operationId": "get_playlistContent",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/search": {
+			"get": {
+				"summary": "Search for files and folders.",
+				"description": "Search for files and folders. Search queries can return objects containing words across all metadata fields or just specific fields",
+				"operationId": "get_search",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				},
+				{
+					"in": "query",
+					"name": "start",
+					"description": "Page number to return, for paginated responses. Default is 1."
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/thumbnails/{content-token}": {
+			"get": {
+				"summary": "Retrieve thumbnails for a file.",
+				"description": "",
+				"operationId": "get_thumbnails2",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		},
+		"/token": {
+			"post": {
+				"summary": "Obtain an OAuth2 access token.",
+				"description": "Obtain OAuth 2 access and refresh tokens, using an authorization code received from a call to /authorize.",
+				"operationId": "post_token",
+				"parameters": [{
+					"in": "query",
+					"name": "No Name"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [""],
+				"security": []
+			}
+		}
+	},
+	"definitions": {
+		"file_metadata": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"parentPath": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"checksum": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"contentAccessible": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"contentToken": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"deleted": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"extension": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"size": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"version": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"versionCreated": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"viewUid": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"uri": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"shareAssociation": {
+					"description": "This is a default description.",
+					"type": "get"
+				}
+			}
+		},
+		"folder_metadata": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"parentPath": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"size": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"version": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"versionCreated": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"count": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"deleted": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"viewUid": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"shareAssociation": {
+					"description": "This is a default description.",
+					"type": "get"
+				}
+			}
+		},
+		"viewUid": {
+			"properties": {
+				"type": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"viewType": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"uid": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"deleted_list": {
+			"properties": {
+				"path": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"metadata_response": {
+			"properties": []
+		},
+		"fullview_response": {
+			"properties": []
+		},
+		"fullview_data": {
+			"properties": []
+		},
+		"searchresult_response": {
+			"properties": {
+				"count": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"account_response": {
+			"properties": []
+		},
+		"playlist": {
+			"properties": {
+				"uid": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"type": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"mimeTypeRegex": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"paths": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"creationDate": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"lastModifiedDate": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"playlist_item": {
+			"properties": {
+				"filename": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"path": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"mimeType": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"size": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"versionCreated": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"contentToken": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"checksum": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"contentAccessible": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"extension": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"tags": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"uri": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"playlist_add_request": {
+			"properties": {
+				"add": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"playlist_add_response": {
+			"properties": {
+				"paths": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"playlist_request": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"paths": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"type": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"playlist_base": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"type": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"folder_request": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"path": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"override": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"fops_copy_request": {
+			"properties": {
+				"src": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"target": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"safe": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"conflictsolve": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"override": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"metadata_update_request": {
+			"properties": {
+				"name": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"value": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"uri": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"fops_change_request": {
+			"properties": {
+				"src": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"target": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"safe": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"conflictsolve": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"contacts": {
+			"properties": {
+				"userid": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"updated": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"contact": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"uploadurls": {
+			"properties": {
+				"uploadurl": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"commiturl": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"error_response": {
+			"properties": {
+				"error_code": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"error_description": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"token_response": {
+			"properties": {
+				"token_type": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"expires_in": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"refresh_token": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"access_token": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"Error": {
+			"properties": {
+				"error": {
+					"description": "This is a default description.",
+					"type": "post"
+				},
+				"error_description": {
+					"description": "This is a default description.",
+					"type": "post"
+				}
+			}
+		},
+		"shareAssociation": {
+			"properties": {
+				"uid": {
+					"description": "This is a default description.",
+					"type": "get"
+				},
+				"visibility": {
+					"description": "This is a default description.",
+					"type": "get"
+				},
+				"name": {
+					"description": "This is a default description.",
+					"type": "get"
+				},
+				"type": {
+					"description": "This is a default description.",
+					"type": "get"
+				}
+			}
+		}
+	}
+}
