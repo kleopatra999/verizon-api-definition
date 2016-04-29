@@ -302,7 +302,7 @@ function processAPIsJSON($apisjsonURL)
                 $url = "{{ site.url }}" + $url;
              }
 
-          var loadIt3 = $.getJSON($pull_url, function($openapispec) {
+          var loadIt3 = $.getJSON($url, function($openapispec) {
 
             $paths = $openapispec['paths'];
             $title = $openapispec['info']['title'];
