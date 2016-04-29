@@ -1,4 +1,4 @@
-# APIs.json Annotation
-This is a micro tool for annotating APIs. It used Github Issues, and the API to establish comment threads on each API endpoint.
+# Verizon API Definition
+This is a project to define an OpenAPI Spec for the Verizon API.
 
-You can view the site at: http://apis.json.annotation.apievangelist.com/
+You can view the site at: http://verizon.stack.network
