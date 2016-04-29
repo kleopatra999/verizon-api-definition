@@ -39,7 +39,11 @@ apis:
   properties:
   - type: x-openapi-spec
     url: api-commons/personal-cloud-storage-api-openapi-spec.json
-x-common: []
+x-common:
+- type: x-portal
+  url: https://thingspace.verizon.com/developer/
+- type: x-twitter
+  url: https://twitter.com/vzenterprise
 include:
 - name: Parent
   url: http://verizon.stack.networkapis.json
