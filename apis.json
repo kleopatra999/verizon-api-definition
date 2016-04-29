@@ -1,0 +1,54 @@
+{
+	"name": "Verizon Thingspace Develop",
+	"description": "",
+	"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/vzlogo_lg.png",
+	"x-open-ranking": "",
+	"tags": ["Verizon ThingSpace Develop Stack"],
+	"created": "2016-04-28",
+	"modified": "2016-04-28",
+	"url": "http://verizon.stack.networkapis.json",
+	"specificationVersion": "0.14",
+	"apis": [{
+		"name": "Connectivity Management API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/vzlogo_lg.png",
+		"humanURL": "",
+		"baseURL": "",
+		"tags": ["Verizon ThingSpace Develop Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/connectivity-management-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Device Messaging API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/vzlogo_lg.png",
+		"humanURL": "",
+		"baseURL": "",
+		"tags": ["Verizon ThingSpace Develop Stack"],
+		"properties": []
+	},
+	{
+		"name": "Personal Cloud Storage API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/vzlogo_lg.png",
+		"humanURL": "",
+		"baseURL": "",
+		"tags": ["Verizon ThingSpace Develop Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/personal-cloud-storage-api-openapi-spec.json"
+		}]
+	}],
+	"x-common": [],
+	"include": [{
+		"name": "Parent",
+		"url": "http://verizon.stack.networkapis.json"
+	}],
+	"maintainers": [{
+		"FN": "Kin Lane",
+		"x-twitter": "apievangelist",
+		"email": "info@apievangelist.com"
+	}]
+}
