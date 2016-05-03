@@ -115,8 +115,8 @@ navigation:
     size2: 0
     padding: 0
     decorate: 0
-  - label1: Return to API Evangelist Tools
-    link1: http://tools.apievangelist.com
+  - label1: Return to API Stack
+    link1: http://theapistack.com/certifying/
     size1: 70
     extend: 0
     label2:
