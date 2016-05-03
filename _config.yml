@@ -54,7 +54,7 @@ project_footer: If you have a Verizon Thingspace OpenAPI Spec feel free to submi
 navigation:
   - label1: Home
     link1: /
-    size1: 70
+    size1: 60
     extend: 0
     label2:
     link2:
@@ -63,34 +63,25 @@ navigation:
     decorate: 0
   - label1: About
     link1: /about/
-    size1: 70
-    extend: 0
-    label2:
-    link2:
+    size1: 60
+    extend: 1
+    label2: Support
+    link2: /support/
     size2: 0
     padding: 0
     decorate: 0
   - label1: Paths
     link1: /tools/manage-paths/
-    size1: 70
-    extend: 0
-    label2:
-    link2:
-    size2: 0
-    padding: 0
-    decorate: 0
-  - label1: Summaries
-    link1: /tools/manage-summaries/
-    size1: 70
-    extend: 0
-    label2:
-    link2:
+    size1: 60
+    extend: 1
+    label2: Summaries
+    link2: /tools/manage-summaries/
     size2: 0
     padding: 0
     decorate: 0
   - label1: Tags
     link1: /tools/manage-tags/
-    size1: 70
+    size1: 60
     extend: 1
     label2: Cloud
     link2: /tools/tag-cloud/
@@ -99,7 +90,7 @@ navigation:
     decorate: 0
   - label1: Parameters
     link1: /tools/manage-parameters/
-    size1: 70
+    size1: 60
     extend: 0
     label2:
     link2:
@@ -108,7 +99,7 @@ navigation:
     decorate: 0
   - label1: Annotations
     link1: /tools/annotations/
-    size1: 70
+    size1: 60
     extend: 0
     label2:
     link2:
